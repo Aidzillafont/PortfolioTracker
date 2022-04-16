@@ -1,0 +1,56 @@
+#PortfolioTracker
+#password
+#latest
+
+docker run --name PortfolioTracker -e MYSQL_ROOT_PASSWORD=password -p 6603:3306 -d mysql:latest
+
+
+#Run container in Docker desktop
+
+
+mysql -u root -p
+#type in password
+
+now your into mysql
+
+connect via sql workbench
+
+
+
+#create schema
+CREATE SCHEMA `PortfolioTracker` ;
+
+
+#taken from our lucid chart er diagram
+CREATE TABLE `portfolios` (
+  `idportfolio` int,
+  `idcustom` varchar(45),
+  `name` varchar(45),
+  PRIMARY KEY (`idportfolio`)
+);
+
+CREATE TABLE `assets` (
+  `idasset` int,
+  `idcustom` varchar(45),
+  `name` varchar(45),
+  PRIMARY KEY (`idasset`)
+);
+
+CREATE TABLE `prices` (
+  `idasset` int,
+  `date` date,
+  `price` Decimal(11,2),
+  FOREIGN KEY (`idasset`) REFERENCES `assets`(`idasset`)
+);
+
+CREATE TABLE `trades` (
+  `idportfolio` int,
+  `idasset` int,
+  `date` date,
+  `qty` int,
+  `price` Decimal(11,2),
+  FOREIGN KEY (`idportfolio`) REFERENCES `portfolios`(`idportfolio`),
+  FOREIGN KEY (`idasset`) REFERENCES `assets`(`idasset`)
+);
+
+
