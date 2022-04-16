@@ -1,0 +1,7 @@
+Portfolio,Asset,date,qty,price
+PortA,Asset1,16/04/2022,100,3
+PortA,Asset2,16/04/2022,200,1.5
+PortA,Asset3,16/04/2022,300,1
+PortB,Asset4,16/04/2022,50,2
+PortB,Asset1,16/04/2022,70,3
+PortB,Asset1,16/04/2022,-20,4
